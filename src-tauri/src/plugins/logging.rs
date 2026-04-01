@@ -23,3 +23,18 @@ fn prod_logging_target() -> tauri_plugin_log::Target {
         file_name: Some("logs".to_string()),
     })
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn dev_logging_target_creates_stdout_target() {
+        let _target = dev_logging_target();
+    }
+
+    #[test]
+    fn prod_logging_target_creates_logdir_target() {
+        let _target = prod_logging_target();
+    }
+}

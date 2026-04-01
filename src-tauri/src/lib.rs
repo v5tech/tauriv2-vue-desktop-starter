@@ -1,4 +1,3 @@
-use plugins::logging;
 use tauri::Manager;
 use tauri_plugin_decorum::WebviewWindowExt;
 
