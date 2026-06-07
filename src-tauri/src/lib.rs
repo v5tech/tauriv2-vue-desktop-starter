@@ -8,6 +8,12 @@ pub mod plugins;
 
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
+    #[cfg(any(target_os = "macos", target_os = "linux"))]
+    {
+        if let Err(err) = fix_path_env::fix() {
+            log::warn!("fix-path-env failed: {err}; falling back to well-known dirs");
+        }
+    }
     let mut builder =
         tauri::Builder::default().plugin(tauri_plugin_single_instance::init(|_, _, _| {}));
 
@@ -27,6 +33,8 @@ pub fn run() {
         .plugin(tauri_plugin_decorum::init())
         .plugin(tauri_plugin_store::Builder::new().build())
         .plugin(tauri_plugin_shell::init())
+        .plugin(tauri_plugin_dialog::init())
+        .plugin(tauri_plugin_fs::init())
         .plugin(tauri_plugin_window_state::Builder::default().build())
         .invoke_handler(tauri::generate_handler![])
         .setup(|app| {

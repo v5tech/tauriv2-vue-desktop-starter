@@ -6,18 +6,20 @@ pub fn tauri_plugin_logging() -> TauriPlugin<tauri::Wry> {
         .rotation_strategy(tauri_plugin_log::RotationStrategy::KeepAll)
         .level(log::LevelFilter::Info)
         .target(
-            #[cfg(dev)]
+            #[cfg(debug_assertions)]
             dev_logging_target(),
-            #[cfg(not(dev))]
+            #[cfg(not(debug_assertions))]
             prod_logging_target(),
         )
         .build()
 }
 
+#[allow(dead_code)]
 fn dev_logging_target() -> tauri_plugin_log::Target {
     tauri_plugin_log::Target::new(tauri_plugin_log::TargetKind::Stdout)
 }
 
+#[allow(dead_code)]
 fn prod_logging_target() -> tauri_plugin_log::Target {
     tauri_plugin_log::Target::new(tauri_plugin_log::TargetKind::LogDir {
         file_name: Some("logs".to_string()),

@@ -26,7 +26,6 @@ build-debug:
 clean:
     pnpm run clean
 
-
 # Lint Vue (ESLint) and Rust (clippy)
 lint: lint-vue lint-rust
 

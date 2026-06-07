@@ -27,6 +27,5 @@ coverage
 
 *.tsbuildinfo
 
-notes
 gen
 target
