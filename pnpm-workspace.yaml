@@ -16,10 +16,8 @@ trustPolicyExclude:
   - semver@6.3.1
 onlyBuiltDependencies:
   - '@tailwindcss/oxide'
-  - esbuild
   - unrs-resolver
   - vue-demi
 
 allowBuilds:
-  esbuild: true
   vue-demi: true
