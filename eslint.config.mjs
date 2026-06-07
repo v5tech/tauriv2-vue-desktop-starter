@@ -16,6 +16,7 @@ export default antfu(
       'tsconfig.app.json',
       'tsconfig.node.json',
       '.github/**',
+      'docs/**',
     ],
     stylistic: {
       indent: 2,
