@@ -23,6 +23,7 @@ pub fn run() {
     {
         let devtools = tauri_plugin_devtools::init();
         builder = builder.plugin(devtools);
+        builder = builder.plugin(tauri_plugin_pilot::init());
     }
 
     #[cfg(not(debug_assertions))]
