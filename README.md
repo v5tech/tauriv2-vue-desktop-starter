@@ -14,6 +14,9 @@ A desktop application starter using the libraries and technologies:
   - [Vue I18n](https://vue-i18n.intlify.dev/) for internationalization.
   - [Pinia](https://pinia.vuejs.org/introduction.html) for state management.
 
+- AI Support
+  - [Tauri Pilot](https://github.com/mpiton/tauri-pilot) lets AI agents inspect, interact with, and debug Tauri applications in real-time
+
 ## Preview
 
 ### _Light mode dashboard view_

@@ -33,6 +33,7 @@ tauri-plugin-fs = "2.5.1"
 tauri-plugin-dialog = "2.7.1"
 [target.'cfg(not(any(target_os = "android", target_os = "ios")))'.dependencies]
 tauri-plugin-single-instance = "2.4.2"
+tauri-plugin-pilot = { git = "https://github.com/mpiton/tauri-pilot" }
 fix-path-env = { git = "https://github.com/tauri-apps/fix-path-env-rs", rev = "c4c45d503ea115a839aae718d02f79e7c7f0f673" }
 
 serde_json = "1.0.150"
