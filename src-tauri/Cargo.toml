@@ -1,6 +1,6 @@
 [package]
 name = "tauriv2-vue-desktop-starter"
-version = "0.15.0"
+version = "0.17.0"
 description = "A Tauri v2 Vue Desktop Starter"
 authors = [ "you" ]
 edition = "2024"
@@ -19,10 +19,10 @@ crate-type = [
 ]
 
 [build-dependencies]
-tauri-build = { version = "2.6.2", features = [] }
+tauri-build = { version = "2.6.3", features = [] }
 
 [dependencies]
-tauri = { version = "2.11.2", features = [] }
+tauri = { version = "2.11.3", features = [] }
 tauri-plugin-shell = "2.3.5"
 tauri-plugin-window-state = "2.4.1"
 tauri-plugin-store = "2.4.3"
@@ -35,8 +35,8 @@ tauri-plugin-dialog = "2.7.1"
 tauri-plugin-single-instance = "2.4.2"
 fix-path-env = { git = "https://github.com/tauri-apps/fix-path-env-rs", rev = "c4c45d503ea115a839aae718d02f79e7c7f0f673" }
 
-serde_json = "1.0.149"
-log = "0.4.29"
+serde_json = "1.0.150"
+log = "0.4.33"
 
 [profile.dev]
 incremental = true # Compile your binary in smaller steps.
