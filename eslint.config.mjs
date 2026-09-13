@@ -29,7 +29,7 @@ export default antfu(
     settings: {
       'vue-i18n': {
         localeDir: './src/i18n/locales/*.json',
-        messageSyntaxVersion: '^11.0.0',
+        messageSyntaxVersion: '^11.4.0',
       },
     },
   },

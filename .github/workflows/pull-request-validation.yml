@@ -47,10 +47,12 @@ jobs:
     steps:
       - uses: actions/checkout@v7
 
-      - uses: pnpm/action-setup@v6
-        name: Install pnpm
+      - name: Install pnpm, Node.js and Frontend Dependencies
+        uses: pnpm/setup@v2
         with:
-          run_install: false
+          runtime: node@26
+          cache: true
+          require-lockfile: true
 
       - name: Install Dependencies (Ubuntu only)
         if: matrix.platform == 'ubuntu-22.04' || matrix.platform == 'ubuntu-22.04-arm' # This must match the platform value defined above.
@@ -58,20 +60,11 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y libwebkit2gtk-4.1-dev libappindicator3-dev librsvg2-dev patchelf
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v7
-        with:
-          node-version-file: .nvmrc
-          cache: pnpm
-
       - name: Install Rust stable
         uses: dtolnay/rust-toolchain@stable
         with:
           # Those targets are only used on macos runners so it's in an `if` to slightly speed up windows and linux builds.
           targets: ${{ matrix.platform == 'macos-latest' && 'aarch64-apple-darwin,x86_64-apple-darwin' || '' }}
-
-      - name: Install Frontend Dependencies
-        run: pnpm install --frozen-lockfile
 
       # If tagName and releaseId are omitted tauri-action will only build the app and won't try to upload any assets.
       - name: Build Artifacts

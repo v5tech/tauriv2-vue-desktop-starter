@@ -20,6 +20,7 @@ setup:
     prek install
 
 # Install all dependencies exactly as locked
+[parallel]
 install: install-vue install-rust
 
 # Install frontend dependencies exactly as locked
@@ -47,6 +48,7 @@ clean:
     pnpm run clean
 
 # Lint Vue (ESLint) and Rust (clippy)
+[parallel]
 lint: lint-vue lint-rust
 
 # Lint Vue/TS source with ESLint, fixing what can be fixed
@@ -60,6 +62,7 @@ lint-rust:
 
 
 # Format Vue (ESLint fix) and Rust (fmt + clippy fix)
+[parallel]
 format: format-vue format-rust
 
 # Format Vue/TS source via ESLint auto-fix
@@ -73,6 +76,7 @@ format-rust:
 
 
 # Run Vue and Rust test suites
+[parallel]
 test: test-vue test-rust
 
 # Run Vue/TS tests via vitest
@@ -101,6 +105,7 @@ verify:
     cd {{rust_dir}} && cargo test --doc
 
 # Scan dependencies for known vulnerabilities
+[parallel]
 audit: audit-vue audit-rust
 
 # Scan frontend dependencies
